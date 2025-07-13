@@ -1,0 +1,244 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: #1e1e2f;
+  color: #ffffff;
+}
+
+body.light {
+  background-color: #f4f7fd;
+  color: #000000;
+}
+
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background-color: #2d2d45;
+  color: white;
+}
+
+body.light .sidebar {
+  background-color: #ffffff;
+  color: #000000;
+  border-right: 1px solid #e0e0e0;
+}
+
+.sidebar-hidden main {
+  margin-left: 0 !important;
+}
+
+#showSidebarBtn {
+  bottom: 10px;
+  left: 10px;
+}
+
+.sidebar-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+  background-color: #4e5d78;
+  color: white;
+}
+
+body.light .sidebar-item:hover,
+body.light .sidebar-item.active {
+  background-color: #e0e7ff;
+  color: #000;
+}
+
+.board-container {
+  margin-left: 50px;
+}
+
+.theme-toggle {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 15px;
+}
+
+body.light .theme-toggle {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.kanban-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.task-column {
+  background-color: #2e2e42;
+  padding: 15px;
+  border-radius: 12px;
+  min-height: 200px;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+body.light .task-column {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+.column-title {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.task-card {
+  background-color: #3b3b52;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+body.light .task-card {
+  background-color: #f0f2f5;
+  color: #000;
+}
+
+.task-card .task-subinfo {
+  font-size: 0.85rem;
+  color: #bbb;
+}
+
+.task-card .dropdown {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.task-card .dropdown-toggle {
+  color: #aaa;
+  background: none;
+  border: none;
+}
+
+.task-card .dropdown-toggle:hover {
+  color: #fff;
+}
+
+.add-column-placeholder {
+  background-color: #292941;
+  color: #aaa;
+  border: 2px dashed #555;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+body.light .add-column-placeholder {
+  background-color: #e9ecef;
+  border-color: #ccc;
+  color: #666;
+}
+
+.modal-content {
+  background-color: #2e2e42;
+  color: white;
+}
+
+body.light .modal-content {
+  background-color: #fff;
+  color: #000;
+}
+
+.btn-outline-light {
+  border-color: #ccc;
+  color: white;
+}
+
+body.light .btn-outline-light {
+  color: #000;
+}
+
+.form-control,
+.form-select {
+  background-color: #42425f;
+  color: white;
+  border: 1px solid #555;
+}
+
+body.light .form-control,
+body.light .form-select {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+}
+
+.btn-close {
+  filter: invert(1);
+}
+
+body.light .btn-close {
+  filter: invert(0);
+}
+
+/* Scrollbar Styling */
+.task-column::-webkit-scrollbar {
+  width: 8px;
+}
+.task-column::-webkit-scrollbar-track {
+  background: transparent;
+}
+.task-column::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 4px;
+}
+
+/* Three-dot dropdown styling */
+.dropdown-menu {
+  background-color: #3b3b52;
+  border: none;
+  border-radius: 6px;
+}
+
+body.light .dropdown-menu {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  color: white;
+  font-size: 0.9rem;
+}
+
+body.light .dropdown-item {
+  color: #000;
+}
+
+.dropdown-item:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+body.light .dropdown-item:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.bg-dark-subtle {
+  background-color: #2b2c37 !important;
+}
+
+.bg-kanban-card {
+  background-color: #2b2c37;
+}
+
+.task-card {
+  transition: background 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.task-card:hover {
+  background-color: #3e3f4e;
+}
+
+.text-muted {
+  color: #a4a6b3 !important;
+}

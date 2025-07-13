@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Task Manager</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="dark">
+    <div class="d-flex">
+      <!-- Sidebar -->
+      <aside
+        id="sidebar"
+        class="sidebar d-flex flex-column justify-content-between p-4"
+      >
+        <div>
+          <h4 class="fw-bold mb-4">📋 Kanban</h4>
+          <ul class="list-unstyled board-list mb-4" id="boardList"></ul>
+          <button class="btn btn-outline-light w-100 mb-4" id="createBoardBtn">
+            + Create New Board
+          </button>
+        </div>
+        <div>
+          <div class="theme-toggle d-flex align-items-center gap-3 mb-3">
+            <i class="bi bi-moon-fill toggle-icon" id="theme-icon"></i>
+            <div class="form-check form-switch m-0">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="modeToggle"
+                checked
+              />
+            </div>
+          </div>
+          <button
+            id="hideSidebarBtn"
+            class="btn btn-sm btn-outline-light w-100"
+          >
+            <i class="bi bi-eye-slash"></i> Hide Sidebar
+          </button>
+        </div>
+      </aside>
+
+      <!-- Show Sidebar Button -->
+      <button
+        id="showSidebarBtn"
+        class="btn btn-sm btn-secondary position-fixed m-3 d-none"
+        style="z-index: 1000"
+      >
+        <i class="bi bi-eye"></i> Show Sidebar
+      </button>
+
+      <!-- Main Content -->
+      <main class="flex-grow-1 p-5 board-container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2
+            class="page-title d-flex align-items-center gap-3"
+            id="currentBoardName"
+          >
+            Platform Launch
+          </h2>
+          <div class="d-flex align-items-center gap-2">
+            <button
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#addTaskModal"
+            >
+              + Add New Task
+            </button>
+            <div class="dropdown">
+              <button
+                class="btn btn-sm btn-outline-secondary"
+                type="button"
+                id="boardOptionsDropdown"
+                data-bs-toggle="dropdown"
+              >
+                <i class="bi bi-three-dots-vertical"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#" id="editBoardBtn"
+                    >Edit Board</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item text-danger"
+                    href="#"
+                    id="deleteBoardBtn"
+                    >Delete Board</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- ✅ Dynamic Kanban Columns will be inserted here -->
+        <div class="kanban-board" id="kanbanBoard"></div>
+      </main>
+    </div>
+
+    <!-- Add/Edit Task Modal -->
+    <div class="modal fade" id="addTaskModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <form id="taskForm" class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add/Edit Task</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="taskIndex" />
+            <div class="mb-3">
+              <label class="form-label">Title</label>
+              <input type="text" id="taskTitle" class="form-control" required />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Description</label>
+              <textarea id="taskDesc" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Subtasks</label>
+              <div id="subtaskList">
+                <input
+                  type="text"
+                  class="form-control subtask-input mb-2"
+                  placeholder="Subtask 1"
+                />
+                <input
+                  type="text"
+                  class="form-control subtask-input mb-2"
+                  placeholder="Subtask 2"
+                />
+              </div>
+              <button
+                type="button"
+                class="btn btn-sm btn-outline-primary"
+                onclick="addSubtaskInput()"
+              >
+                + Add Subtask
+              </button>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Status</label>
+              <select id="taskStatus" class="form-select">
+                <option value="todo">To Do</option>
+                <option value="doing">Doing</option>
+                <option value="done">Done</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-success" type="submit">Save Task</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bootstrap and JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
